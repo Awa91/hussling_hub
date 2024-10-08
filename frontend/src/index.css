@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @layer base {
+  li {
+    @apply p-4
+  }
+
+  button {
+    @apply text-white border bg-blue-600 border-blue-600
+    hover:bg-transparent hover:text-blue-600 rounded-md
+  }
+} */
+
+@layer components {
+  .badge {
+    @apply h-5 uppercase font-bold text-white rounded-xl px-2 py-1;
+  }
+
+  .filter {
+    @apply font-semibold text-cyan-primary bg-cyan-filter-color mx-1 px-2 py-1 rounded;
+  }
+
+
+  /* Product carousel */
+@keyframes carouselAnim {
+
+  from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(calc(-100% + (6*300px)));
+    }
+  
+}
+  .carousel-focus:hover {
+      transition: all 0.8s;
+      transform: scale(1.1);
+    }
+    
+@media only screen and (max-width: 2536px){
+  .container .carousel-items{
+      animation:  carouselAnim 40s infinite alternate linear;
+  }
+  @keyframes carouselAnim {
+      from {
+          transform: translate(0, 0);
+        }
+        to {
+          transform: translate(calc(-100% + (10*280px)));
+        }
+      }   
+  }
+  /*Product carousel ends  */
+}
+
+.item-enter {
+  opacity: 0;
+  /* transform: translateX(-150%); */
+}
+.item-enter-active {
+  opacity: 1;
+  /* transform: translateX(0%); */
+}
+.item-exit {
+  opacity: 1;
+  /* transform: translateX(0%); */
+}
+.item-exit-active {
+  opacity: 0;
+  /* transform: translateX(150%); */
+}
+.item-enter-active,
+.item-exit-active {
+  transition: opacity 700ms ease, transform 700ms ease;
+}
